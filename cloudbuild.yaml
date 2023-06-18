@@ -1,0 +1,10 @@
+steps:
+  - name: 'gcr.io/cloud-builders/gsutil'
+    args:
+      - '-m'
+      - 'cp'
+      - 'gs://github.com/Lohith0590/GCPDevOps/index.html'
+      - 'gs://git-buck-1'
+
+substitutions:
+  _BUCKET_NAME: git-buck-1
