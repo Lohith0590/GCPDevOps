@@ -3,8 +3,8 @@ steps:
     args: ['clone', 'https://github.com/Lohith0590/GCPDevOps.git']
 
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', 'GCPDevOps/index.html', 'gs://git-buck-1']
+    args: ['cp', 'GCPDevOps/index.html', 'gs://git-buck-2']
 
 substitutions:
-  _BUCKET_NAME: git-buck-1
+  _BUCKET_NAME: git-buck-2
 
