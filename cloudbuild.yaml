@@ -1,4 +1,10 @@
 steps:
+  - name: 'gcr.io/cloud-builders/bash'
+    entrypoint: 'bash'
+    args:
+      - '-c'
+      - 'rm -rf ./*'
+
   - name: 'gcr.io/cloud-builders/git'
     args: ['clone', 'https://github.com/Lohith0590/GCPDevOps.git', '.']
 
