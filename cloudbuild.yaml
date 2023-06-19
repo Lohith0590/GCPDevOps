@@ -9,9 +9,10 @@ steps:
         rm -rf temp-dir
 
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', 'index.html', 'gs://git-buck-1']
+    args: ['cp', 'index.html', 'gs://$_BUCKET_NAME']
+
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: ['run', 'deploy', 'my-service', '--source', '.', '--platform', 'managed', '--region', 'us-east1']
 
 substitutions:
   _BUCKET_NAME: 'git-buck-1'
-
-
