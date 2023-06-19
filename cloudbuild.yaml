@@ -3,8 +3,7 @@ steps:
     args: ['clone', 'https://github.com/Lohith0590/GCPDevOps.git', 'goog-rep']
 
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', 'goog-repo/index.html', 'gs://git-buck-1']
+    args: ['cp', 'goog-rep/index.html', 'gs://$_BUCKET_NAME/']
 
 substitutions:
   _BUCKET_NAME: 'git-buck-1'
-
