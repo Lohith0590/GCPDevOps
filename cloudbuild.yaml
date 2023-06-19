@@ -1,16 +1,17 @@
 steps:
-  - name: 'ubuntu'
+  - name: 'gcr.io/cloud-builders/git'
     entrypoint: 'bash'
     args:
       - '-c'
-      - 'rm -rf ./*'
-
-  - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/Lohith0590/GCPDevOps.git', '.']
+      - |
+        git clone https://github.com/Lohith0590/GCPDevOps.git temp-dir || (cd temp-dir && git pull origin)
+        mv temp-dir/* .
+        rm -rf temp-dir
 
   - name: 'gcr.io/cloud-builders/gsutil'
     args: ['cp', 'index.html', 'gs://git-buck-1']
 
 substitutions:
   _BUCKET_NAME: 'git-buck-1'
+
 
