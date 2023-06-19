@@ -10,11 +10,12 @@ steps:
       - 'pull'
     dir: 'goog-rep'
 
-  - name: 'gcr.io/cloud-builders/gsutil'
+  - name: 'gcr.io/cloud-builders/gcloud'
     args:
-      - 'cp'
-      - 'goog-rep/index.html'
-      - 'gs://$_BUCKET_NAME/'
+      - 'app'
+      - 'deploy'
+      - 'goog-rep/app.yaml'
+    dir: 'goog-rep'
 
 substitutions:
   _BUCKET_NAME: 'git-buck-1'
