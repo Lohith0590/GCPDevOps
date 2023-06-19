@@ -1,9 +1,20 @@
 steps:
   - name: 'gcr.io/cloud-builders/git'
-    args: ['clone', 'https://github.com/Lohith0590/GCPDevOps.git', 'goog-rep']
+    args:
+      - 'clone'
+      - 'https://github.com/Lohith0590/GCPDevOps.git'
+      - 'goog-rep'
+
+  - name: 'gcr.io/cloud-builders/git'
+    args:
+      - 'pull'
+    dir: 'goog-rep'
 
   - name: 'gcr.io/cloud-builders/gsutil'
-    args: ['cp', 'goog-rep/index.html', 'gs://$_BUCKET_NAME/']
+    args:
+      - 'cp'
+      - 'goog-rep/index.html'
+      - 'gs://$_BUCKET_NAME/'
 
 substitutions:
   _BUCKET_NAME: 'git-buck-1'
