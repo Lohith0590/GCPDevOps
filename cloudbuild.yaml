@@ -1,5 +1,5 @@
 steps:
-  - name: 'gcr.io/cloud-builders/bash'
+  - name: 'ubuntu'
     entrypoint: 'bash'
     args:
       - '-c'
@@ -13,3 +13,4 @@ steps:
 
 substitutions:
   _BUCKET_NAME: 'git-buck-1'
+
